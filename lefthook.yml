@@ -1,0 +1,15 @@
+pre-commit:
+  parallel: true
+  commands:
+    rubocop:
+      glob: "*.rb"
+      run: bundle exec rubocop -P
+    fasterer:
+      glob: "*.rb"
+      run: bundle exec fasterer
+    brakeman:
+      glob: "*.rb"
+      run: bundle exec brakeman --no-pager --ignore-model-output
+    bundle_audit:
+      run: bundle-audit check --update
+

@@ -1,0 +1,48 @@
+require:
+  - rubocop-rails
+  - rubocop-rspec
+  - rubocop-performance
+
+AllCops:
+  NewCops: enable
+
+Layout/LineLength:
+  Max: 120
+
+Style/Documentation:
+  Enabled: false
+
+Metrics/BlockLength:
+  Exclude:
+    - spec/**/*
+    - lib/**/*
+    - config/environments/**/*
+    - config/routes.rb
+
+Metrics/MethodLength:
+  Exclude:
+    - db/**/*
+    - spec/support/helpers/root_helpers.rb
+
+RSpec/MultipleMemoizedHelpers:
+  Enabled: false
+
+RSpec/NestedGroups:
+  Max: 7
+
+RSpec/EmptyExampleGroup:
+  Enabled: false
+
+RSpec/LetSetup:
+  Enabled: false
+
+Naming/FileName:
+  Exclude:
+    - config/initializers/rswag-ui.rb
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Rails/FilePath:
+  Exclude:
+    - config/initializers/rswag_api.rb

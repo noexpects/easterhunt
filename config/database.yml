@@ -1,0 +1,18 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  database: <%= Rails.application.credentials.dig(:db, :database) %>
+  username: <%= Rails.application.credentials.dig(:db, :username) %>
+  password: <%= Rails.application.credentials.dig(:db, :password) %>
+
+development:
+  <<: *default
+  database: easterhunt_development
+
+test:
+  <<: *default
+  database: easterhunt_test
+
+production:
+  <<: *default

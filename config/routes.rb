@@ -1,6 +1,13 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  namespace :admin_panel do
+    resources :easter_eggs, only: %i[index show new create edit update]
+    resources :hunters, only: %i[index show]
+
+    root to: 'easter_eggs#index'
+  end
+
   namespace :api do
     namespace :v1 do
       devise_for :hunters, defaults: { format: :json }, singular: :hunter, path: 'hunters',

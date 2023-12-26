@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_12_24_201524) do
+ActiveRecord::Schema[7.0].define(version: 2023_12_24_212742) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -24,6 +24,18 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_24_201524) do
     t.index ["jti"], name: "index_admins_on_jti", unique: true
   end
 
+  create_table "easter_eggs", force: :cascade do |t|
+    t.string "code"
+    t.decimal "latitude", precision: 8, scale: 6
+    t.decimal "longitude", precision: 9, scale: 6
+    t.text "clue"
+    t.boolean "revealed", default: false, null: false
+    t.bigint "hunter_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["hunter_id"], name: "index_easter_eggs_on_hunter_id"
+  end
+
   create_table "hunters", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -34,4 +46,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_24_201524) do
     t.index ["jti"], name: "index_hunters_on_jti", unique: true
   end
 
+  add_foreign_key "easter_eggs", "hunters"
 end

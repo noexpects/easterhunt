@@ -9,3 +9,8 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 FactoryBot.create(:admin, email: 'admin@admin.com', password: 'password')
+FactoryBot.create(:hunter, email: 'hunter@hunter.com', password: 'password')
+
+10.times do
+  FactoryBot.create(:easter_egg)
+end

@@ -30,4 +30,7 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  easter_egg:
+    created: easter egg created successfully
+    updated: easter egg updated successfully
+    revealed: easter egg revealed successfully

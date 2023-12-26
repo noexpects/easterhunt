@@ -22,6 +22,18 @@ Rails.application.routes.draw do
                           controllers: {
                             sessions: 'api/v1/admins/sessions'
                           }
+
+      namespace :hunters do
+        namespace :easter_eggs do
+          resources :revealed, only: %i[index]
+          resources :unrevealed, only: %i[index]
+          resources :reveal, only: %i[create]
+        end
+      end
+
+      namespace :admins do
+        resources :easter_eggs, only: %i[create update index]
+      end
     end
   end
 end

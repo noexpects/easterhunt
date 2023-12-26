@@ -1,0 +1,4 @@
+exclude_paths:
+  - 'vendor/**/*.rb'
+  - 'config/puma.rb'
+  - 'app/serializers/api/v1/easter_egg_serializer.rb'

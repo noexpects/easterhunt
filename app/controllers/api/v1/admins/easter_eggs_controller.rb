@@ -36,7 +36,7 @@ class Api::V1::Admins::EasterEggsController < ApplicationController
   def render_response(code:, message:, status:, easter_egg:)
     render json: {
       status: { code:, message: },
-      data: Api::V1::EasterEggSerializer.new(easter_egg).serializable_hash
+      data: Api::V1::AdminEasterEggSerializer.new(easter_egg).serializable_hash
     }, status:
   end
 

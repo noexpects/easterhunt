@@ -7,7 +7,7 @@ class Api::V1::EasterEggs::UpdateEasterEggContract < Dry::Validation::Contract
                                         lteq?: Constants::EasterEgg::LATITUDE_MAX)
     optional(:longitude).maybe(:decimal, gteq?: Constants::EasterEgg::LONGITUDE_MIN,
                                          lteq?: Constants::EasterEgg::LONGITUDE_MAX)
-    optional(:clue).maybe(:string).value(max_size?: Constants::EasterEgg::CLUE_MAX_LENGTH)
+    optional(:clue).maybe(:string, max_size?: Constants::EasterEgg::CLUE_MAX_LENGTH)
   end
 
   rule(:latitude) do

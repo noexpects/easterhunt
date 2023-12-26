@@ -16,7 +16,7 @@ class Api::V1::Hunters::RegistrationsController < Devise::RegistrationsControlle
   def respond_with(resource, _opts = {})
     if request.post? && resource.persisted?
       render_response(status_code: :ok, message: I18n.t('devise.registrations.signed_up'),
-                      data: HunterSerializer.new(resource).serializable_hash[:data][:attributes])
+                      data: Api::V1::HunterSerializer.new(resource).serializable_hash[:data][:attributes])
     elsif request.delete?
       render_response(status_code: :ok, message: I18n.t('devise.registrations.destroyed'))
     else

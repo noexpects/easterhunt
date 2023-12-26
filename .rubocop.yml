@@ -47,3 +47,17 @@ Style/ClassAndModuleChildren:
 Rails/FilePath:
   Exclude:
     - config/initializers/rswag_api.rb
+
+Rails/LexicallyScopedActionFilter:
+  Exclude:
+    - app/controllers/api/v1/hunters/registrations_controller.rb
+
+Metrics/AbcSize:
+  Exclude:
+    - app/controllers/api/v1/hunters/registrations_controller.rb
+
+Lint/MissingSuper:
+  Exclude:
+    - app/services/api/v1/easter_eggs/create_easter_egg_service.rb
+    - app/services/api/v1/easter_eggs/update_easter_egg_service.rb
+    - app/services/api/v1/easter_eggs/reveal_easter_egg_service.rb

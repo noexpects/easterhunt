@@ -10,7 +10,7 @@ class Api::V1::Hunters::SessionsController < Devise::SessionsController
   def respond_with(resource, _opts = {})
     render json: {
       status: { code: 200, message: I18n.t('devise.sessions.signed_in') },
-      data: HunterSerializer.new(resource).serializable_hash[:data][:attributes]
+      data: Api::V1::HunterSerializer.new(resource).serializable_hash[:data][:attributes]
     }, status: :ok
   end
 

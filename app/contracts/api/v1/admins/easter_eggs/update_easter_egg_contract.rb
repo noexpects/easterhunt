@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class Api::V1::EasterEggs::UpdateEasterEggContract < Dry::Validation::Contract
+class Api::V1::Admins::EasterEggs::UpdateEasterEggContract < Dry::Validation::Contract
   params do
     required(:id).filled(:integer)
     optional(:latitude).maybe(:decimal, gteq?: Constants::EasterEgg::LATITUDE_MIN,
@@ -21,6 +21,8 @@ class Api::V1::EasterEggs::UpdateEasterEggContract < Dry::Validation::Contract
   rule(:id) do
     key.failure(:not_exists) unless egg_exists?(value)
   end
+
+  private
 
   def matches_format?(key, value)
     Constants::EasterEgg::COORDINATES_FORMATS[key].match?(value.to_s)

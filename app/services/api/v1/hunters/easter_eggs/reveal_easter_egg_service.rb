@@ -6,7 +6,7 @@ class Api::V1::EasterEggs::RevealEasterEggService < BaseService
   def initialize(params, hunter_id)
     @params = params
     @hunter_id = hunter_id
-    @contract = Api::V1::EasterEggs::RevealEasterEggContract.new
+    @contract = Api::V1::Hunters::EasterEggs::RevealEasterEggContract.new
   end
 
   def call

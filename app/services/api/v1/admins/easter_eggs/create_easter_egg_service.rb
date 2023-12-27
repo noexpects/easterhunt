@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 
-class Api::V1::EasterEggs::CreateEasterEggService < BaseService
+class Api::V1::Admins::EasterEggs::CreateEasterEggService < BaseService
   attr_reader :easter_egg, :contract
 
   def initialize(params)
     @params = params
     @easter_egg = EasterEgg.new(params)
-    @contract = Api::V1::EasterEggs::CreateEasterEggContract.new
+    @contract = Api::V1::Admins::EasterEggs::CreateEasterEggContract.new
   end
 
   def call

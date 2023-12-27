@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class Api::V1::EasterEggs::RevealEasterEggContract < Dry::Validation::Contract
+class Api::V1::Hunters::EasterEggs::RevealEasterEggContract < Dry::Validation::Contract
   params do
     required(:easter_egg_id).filled(:integer)
     required(:code).filled(:string).value(size?: Constants::EasterEgg::UNIQUE_CODE_LENGTH)
@@ -13,6 +13,8 @@ class Api::V1::EasterEggs::RevealEasterEggContract < Dry::Validation::Contract
   rule(:code) do
     key.failure(:wrong_secret_code) unless code_matches?(values)
   end
+
+  private
 
   def egg_revealed?(id:)
     EasterEgg.find_by(id:).revealed?

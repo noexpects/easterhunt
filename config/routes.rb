@@ -8,9 +8,20 @@ Rails.application.routes.draw do
     root to: 'easter_eggs#index'
   end
 
-  namespace :api do
+  devise_for :admins, singular: :admin, path: 'admins',
+                      skip: %i[registrations invitations passwords confirmations unlocks],
+                      path_names: {
+                        sign_in: 'login',
+                        sign_out: 'logout'
+                      },
+                      controllers: {
+                        sessions: 'admins/sessions'
+                      }
+
+  namespace :api, defaults: { format: :json } do
     namespace :v1 do
       devise_for :hunters, defaults: { format: :json }, singular: :hunter, path: 'hunters',
+                           skip: %i[invitations passwords confirmations unlocks],
                            path_names: {
                              sign_in: 'login',
                              sign_out: 'logout',
@@ -21,14 +32,14 @@ Rails.application.routes.draw do
                              registrations: 'api/v1/hunters/registrations'
                            }
 
-      devise_for :admins, defaults: { format: :json }, singular: :admin, path: 'admins',
-                          path_names: {
-                            sign_in: 'login',
-                            sign_out: 'logout'
-                          },
-                          controllers: {
-                            sessions: 'api/v1/admins/sessions'
-                          }
+      namespace :admins do
+        devise_scope :admin do
+          post 'login', to: 'sessions#create'
+          delete 'logout', to: 'sessions#destroy'
+        end
+
+        resources :easter_eggs, only: %i[create update index]
+      end
 
       namespace :hunters do
         namespace :easter_eggs do
@@ -36,10 +47,6 @@ Rails.application.routes.draw do
           resources :unrevealed, only: %i[index]
           resources :reveal, only: %i[create]
         end
-      end
-
-      namespace :admins do
-        resources :easter_eggs, only: %i[create update index]
       end
     end
   end

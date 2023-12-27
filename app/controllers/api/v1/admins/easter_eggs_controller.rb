@@ -10,7 +10,7 @@ class Api::V1::Admins::EasterEggsController < ApplicationController
   end
 
   def create
-    result = Api::V1::EasterEggs::CreateEasterEggService.new(permitted_params)
+    result = Api::V1::Admins::EasterEggs::CreateEasterEggService.new(permitted_params)
     result.call
 
     if result.ok?
@@ -21,7 +21,7 @@ class Api::V1::Admins::EasterEggsController < ApplicationController
   end
 
   def update
-    result = Api::V1::EasterEggs::UpdateEasterEggService.new(permitted_params.merge(id: params[:id]))
+    result = Api::V1::Admins::EasterEggs::UpdateEasterEggService.new(permitted_params.merge(id: params[:id]))
     result.call
 
     if result.ok?

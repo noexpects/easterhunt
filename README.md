@@ -27,7 +27,8 @@ For communication with API using HTTP client is recommended. Postman, Insomnia, 
     name: admin 
     password: admin
 ### Testing
-`rspec` gem used for project testing. SimpleCov Coverage report 99.73%.
+`rspec` gem used for project testing. SimpleCov Coverage report 100.0%
+Use `rspec --exclude-pattern "spec/requests/**/*_spec.rb"` to generate coverage report.
  
 ### Documentation
 List of API endpoints available on `/api-docs`

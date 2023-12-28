@@ -225,7 +225,6 @@ Devise.setup do |config|
   # Don't put a too small interval or your users won't have the time to
   # change their passwords.
   config.reset_password_within = 6.hours
-  config.navigational_formats = ['*/*', :html]
 
   # Set this configuration to false if you want /users/sign_out to sign out
   # only the current scope. By default, Devise signs out all scopes.
@@ -242,7 +241,6 @@ Devise.setup do |config|
   # The "*/*" below is required to match Internet Explorer requests.
   # config.navigational_formats = ['*/*', :html, :turbo_stream]
   config.navigational_formats = []
-
   # The default HTTP method used to sign out a resource. Default is :delete.
   config.sign_out_via = :delete
 

@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
-class ApplicationController < ActionController::Base
-  skip_before_action :verify_authenticity_token, if: :json_request?
-
+class ApplicationController < ActionController::API
   private
 
   def json_request?

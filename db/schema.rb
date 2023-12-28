@@ -26,8 +26,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_24_212742) do
 
   create_table "easter_eggs", force: :cascade do |t|
     t.string "code"
-    t.decimal "latitude", precision: 8, scale: 6
-    t.decimal "longitude", precision: 9, scale: 6
+    t.float "latitude"
+    t.float "longitude"
     t.text "clue"
     t.boolean "revealed", default: false, null: false
     t.bigint "hunter_id"

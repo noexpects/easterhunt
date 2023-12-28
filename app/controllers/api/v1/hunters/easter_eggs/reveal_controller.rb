@@ -4,7 +4,7 @@ class Api::V1::Hunters::EasterEggs::RevealController < ApplicationController
   before_action :authenticate_hunter!
 
   def create
-    result = Api::V1::EasterEggs::RevealEasterEggService.new(reveal_params, current_hunter.id)
+    result = Api::V1::Hunters::EasterEggs::RevealEasterEggService.new(reveal_params, current_hunter.id)
     result.call
 
     if result.ok?
@@ -24,6 +24,6 @@ class Api::V1::Hunters::EasterEggs::RevealController < ApplicationController
   end
 
   def reveal_params
-    params.require(:reveal).permit(:easter_egg_id, :code)
+    params.require(:reveal).permit(:id, :code)
   end
 end

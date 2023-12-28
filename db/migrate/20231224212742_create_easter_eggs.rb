@@ -4,8 +4,8 @@ class CreateEasterEggs < ActiveRecord::Migration[7.0]
   def change
     create_table :easter_eggs do |t|
       t.string :code
-      t.decimal :latitude, precision: 8, scale: 6
-      t.decimal :longitude, precision: 9, scale: 6
+      t.float :latitude
+      t.float :longitude
       t.text :clue
       t.boolean :revealed, null: false, default: false
 

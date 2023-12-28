@@ -32,6 +32,7 @@ group :development, :test do
   gem 'annotate', '~> 3.2'
   gem 'lefthook', '~> 1.0', '>= 1.0.1', require: false
   gem 'rspec-rails', '~> 5.1', '>= 5.1.2'
+  gem 'rswag', '~> 2.5', '>= 2.5.1'
 
   # rubocop
   gem 'rubocop', '~> 1.30', '>= 1.30.1', require: false
@@ -59,4 +60,11 @@ group :test do
   # matchers
   gem 'json_matchers', '~> 0.11.1', require: 'json_matchers/rspec'
   gem 'shoulda-matchers', '~> 5.1'
+
+  # coverage
+  gem 'simplecov', '~> 0.21.2'
+
+  # feature testing
+  gem 'capybara', '~> 3.38'
+  gem 'selenium-webdriver', '~> 4.7', '>= 4.7.1'
 end

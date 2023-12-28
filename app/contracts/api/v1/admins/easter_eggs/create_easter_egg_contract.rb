@@ -2,10 +2,10 @@
 
 class Api::V1::Admins::EasterEggs::CreateEasterEggContract < Dry::Validation::Contract
   params do
-    required(:latitude).filled(:decimal, gteq?: Constants::EasterEgg::LATITUDE_MIN,
-                                         lteq?: Constants::EasterEgg::LATITUDE_MAX)
-    required(:longitude).filled(:decimal, gteq?: Constants::EasterEgg::LONGITUDE_MIN,
-                                          lteq?: Constants::EasterEgg::LONGITUDE_MAX)
+    required(:latitude).filled(:float, gteq?: Constants::EasterEgg::LATITUDE_MIN,
+                                       lteq?: Constants::EasterEgg::LATITUDE_MAX)
+    required(:longitude).filled(:float, gteq?: Constants::EasterEgg::LONGITUDE_MIN,
+                                        lteq?: Constants::EasterEgg::LONGITUDE_MAX)
     optional(:clue).maybe(:string, max_size?: Constants::EasterEgg::CLUE_MAX_LENGTH)
   end
 

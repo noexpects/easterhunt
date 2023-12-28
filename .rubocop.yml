@@ -48,6 +48,12 @@ Rails/FilePath:
   Exclude:
     - config/initializers/rswag_api.rb
 
+RSpec/ExampleLength:
+  Enabled: false
+
+RSpec/MultipleExpectations:
+  Enabled: false
+
 Rails/LexicallyScopedActionFilter:
   Exclude:
     - app/controllers/api/v1/hunters/registrations_controller.rb
@@ -58,6 +64,14 @@ Metrics/AbcSize:
 
 Lint/MissingSuper:
   Exclude:
-    - app/services/api/v1/easter_eggs/create_easter_egg_service.rb
-    - app/services/api/v1/easter_eggs/update_easter_egg_service.rb
-    - app/services/api/v1/easter_eggs/reveal_easter_egg_service.rb
+    - app/services/api/v1/admins/easter_eggs/create_easter_egg_service.rb
+    - app/services/api/v1/admins/easter_eggs/update_easter_egg_service.rb
+    - app/services/api/v1/hunters/easter_eggs/reveal_easter_egg_service.rb
+
+Rails/DeprecatedActiveModelErrorsMethods:
+  Exclude:
+    - spec/**/*
+
+RSpec/ContextWording:
+  Exclude:
+    - spec/support/shared_contexts/generate_response_api_doc.rb

@@ -3,18 +3,22 @@
 class Api::V1::Admins::EasterEggs::UpdateEasterEggContract < Dry::Validation::Contract
   params do
     required(:id).filled(:integer)
-    optional(:latitude).maybe(:decimal, gteq?: Constants::EasterEgg::LATITUDE_MIN,
-                                        lteq?: Constants::EasterEgg::LATITUDE_MAX)
-    optional(:longitude).maybe(:decimal, gteq?: Constants::EasterEgg::LONGITUDE_MIN,
-                                         lteq?: Constants::EasterEgg::LONGITUDE_MAX)
+    optional(:latitude).maybe(:float, gteq?: Constants::EasterEgg::LATITUDE_MIN,
+                                      lteq?: Constants::EasterEgg::LATITUDE_MAX)
+    optional(:longitude).maybe(:float, gteq?: Constants::EasterEgg::LONGITUDE_MIN,
+                                       lteq?: Constants::EasterEgg::LONGITUDE_MAX)
     optional(:clue).maybe(:string, max_size?: Constants::EasterEgg::CLUE_MAX_LENGTH)
   end
 
   rule(:latitude) do
+    next unless value
+
     key.failure(:wrong_format) unless matches_format?(:latitude, value)
   end
 
   rule(:longitude) do
+    next unless value
+
     key.failure(:wrong_format) unless matches_format?(:longitude, value)
   end
 

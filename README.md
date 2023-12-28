@@ -7,10 +7,11 @@ Each Easter Egg has a unique 8-character code written on it and this code is req
 Ruby version: 3.2.1
 
 ### How to run this project
-1) Clone  the repo
+1) Clone the repo
 2) Run `bundle install`
-3) Run `rails db:create db:migrate db:seed`
-4) Run `rails s`
+3) Configure `database.yml` to match your PG credentials
+4) Run `rails db:create db:migrate db:seed`
+5) Run `rails s`
 
 ### Usage
 For communication with API using HTTP client is recommended. Postman, Insomnia, etc.

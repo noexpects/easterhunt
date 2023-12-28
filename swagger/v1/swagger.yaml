@@ -16,6 +16,18 @@ paths:
         in: header
         schema:
           type: string
+      - name: revealed
+        in: query
+        description: Filter by revealed status (true/false)
+        required: false
+        schema:
+          type: boolean
+      - name: hunter_email
+        in: query
+        description: Filter by hunter email
+        required: false
+        schema:
+          type: string
       responses:
         '200':
           description: Easter Eggs found
@@ -119,7 +131,7 @@ paths:
     post:
       summary: Reveals an Easter Egg for a Hunter
       tags:
-      - Hunters::EasterEggs::RevealController
+      - Hunters::EasterEggs
       security:
       - apiKey: []
       parameters:
@@ -151,7 +163,7 @@ paths:
     get:
       summary: Retrieves the list of Easter Eggs revealed by the Hunter
       tags:
-      - Hunters::EasterEggs::RevealedController
+      - Hunters::EasterEggs
       security:
       - apiKey: []
       parameters:
@@ -168,7 +180,7 @@ paths:
     get:
       summary: Retrieves the list of unrevealed Easter Eggs for the Hunter
       tags:
-      - Hunters::EasterEggs::UnrevealedController
+      - Hunters::EasterEggs
       security:
       - apiKey: []
       parameters:
@@ -181,7 +193,7 @@ paths:
           description: List of unrevealed Easter Eggs retrieved
         '401':
           description: Unauthorized
-  "/api/v1/hunters/sign_up":
+  "/api/v1/hunters/signup":
     post:
       summary: Creates a new Hunter
       tags:
@@ -239,7 +251,7 @@ paths:
                   - password
               required:
               - hunter
-  "/api/v1/hunters/sign_in":
+  "/api/v1/hunters/login":
     post:
       summary: Signs in a Hunter
       tags:
@@ -268,16 +280,21 @@ paths:
                   - password
               required:
               - hunter
-  "/api/v1/hunters/sign_out":
+  "/api/v1/hunters/logout":
     delete:
       summary: Signs out a Hunter
       tags:
       - Hunters::Sessions
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
       responses:
         '200':
           description: Hunter signed out
         '401':
-          description: Invalid credentials
+          description: No active session
 servers:
 - url: https://{defaultHost}
   variables:

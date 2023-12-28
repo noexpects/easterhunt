@@ -9,6 +9,9 @@ describe 'Admins EasterEggs API' do
       security [apiKey: []]
       produces 'application/json'
       parameter name: :Authorization, in: :header, type: :string
+      parameter name: :revealed, in: :query, type: :boolean, description: 'Filter by revealed status (true/false)',
+                required: false
+      parameter name: :hunter_email, in: :query, type: :string, description: 'Filter by hunter email', required: false
 
       response '200', 'Easter Eggs found' do
         run_test!

@@ -6,6 +6,8 @@ Each Easter Egg has a unique 8-character code written on it and this code is req
 ### Rails version: 7.0.8
 Ruby version: 3.2.1
 
+Database: PostgreSQL
+
 ### How to run this project
 1) Clone the repo
 2) Run `bundle install`

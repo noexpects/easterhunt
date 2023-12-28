@@ -3,7 +3,7 @@
 require 'swagger_helper'
 
 describe 'Hunters::Registrations API' do
-  path '/api/v1/hunters/sign_up' do
+  path '/api/v1/hunters/signup' do
     post 'Creates a new Hunter' do
       tags 'Hunters::Registrations'
       consumes 'application/json'

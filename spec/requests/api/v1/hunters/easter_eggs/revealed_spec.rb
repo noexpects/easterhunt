@@ -2,10 +2,10 @@
 
 require 'swagger_helper'
 
-describe 'Hunters::EasterEggs::RevealedController API' do
+describe 'Hunters::EasterEggs::Revealed' do
   path '/api/v1/hunters/easter_eggs/revealed' do
     get 'Retrieves the list of Easter Eggs revealed by the Hunter' do
-      tags 'Hunters::EasterEggs::RevealedController'
+      tags 'Hunters::EasterEggs'
       security [apiKey: []]
       produces 'application/json'
       parameter name: :Authorization, in: :header, type: :string

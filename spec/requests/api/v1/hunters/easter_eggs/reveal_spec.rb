@@ -2,10 +2,10 @@
 
 require 'swagger_helper'
 
-describe 'Hunters::EasterEggs::RevealController API' do
+describe 'Hunters::EasterEggs::Reveal' do
   path '/api/v1/hunters/easter_eggs/reveal' do
     post 'Reveals an Easter Egg for a Hunter' do
-      tags 'Hunters::EasterEggs::RevealController'
+      tags 'Hunters::EasterEggs'
       security [apiKey: []]
       consumes 'application/json'
       parameter name: :Authorization, in: :header, type: :string

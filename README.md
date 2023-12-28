@@ -30,4 +30,4 @@ For communication with API using HTTP client is recommended. Postman, Insomnia, 
 `rspec` gem used for project testing. SimpleCov Coverage report 99.73%.
  
 ### Documentation
-List of API endpoints available on `/api_docs`
+List of API endpoints available on `/api-docs`
